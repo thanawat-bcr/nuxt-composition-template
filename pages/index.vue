@@ -5,6 +5,23 @@
     ValidationProvider(rules="required|email" v-slot="{ errors }")
       input.bg-green-200(v-model="user.email" type="email" name="email" placeholder="email")
       span {{ errors[0] }}
+  CommonForm(@submit="submit")
+    .form--group
+      .form--row
+        CommonInput(
+          v-model="user.email"
+          :icon="'/icons/mail.svg'"
+          placeholder="Email"
+          rules="required|email"
+        ) Email
+        CommonInput(
+          v-model="user.password"
+          placeholder="Password"
+          rules="required"
+          type="password"
+        ) Password
+      .form--row
+        input(type="submit" value="Submit")
 </template>
 
 <script lang="ts">
@@ -17,8 +34,13 @@ const index = defineComponent({
       password: '',
     });
 
+    const submit = () => {
+      console.log(user);
+    };
+
     return {
       user,
+      submit,
     };
   },
 });
