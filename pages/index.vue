@@ -1,6 +1,7 @@
 <template lang="pug">
 .index.bg-primary-200.w-screen.h-screen
-  ValidationObserver
+  //- Vee Validate Tester
+  //- ValidationObserver
     ValidationProvider(rules="required|email" v-slot="{ errors }")
       input.bg-green-200(v-model="user.email" type="email" name="email" placeholder="email")
       span {{ errors[0] }}
