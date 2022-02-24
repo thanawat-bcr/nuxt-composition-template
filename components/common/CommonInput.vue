@@ -4,7 +4,7 @@
     .common-input__text__container
       label.subtitle2.text-primary-700: slot Input Label
       .common-input__text__field
-        CommonIcon.common-input__text__icon(v-if="icon" :src="icon" color="black")
+        CommonIcon.common-input__text__icon(v-if="icon" :src="icon")
         input.body2.common-input__text__input(
           :value="value"
           :class="classes"
@@ -13,10 +13,10 @@
           @input="$emit('input', $event.target.value)"
           class="placeholder-black placeholder-opacity-50"
         )
-        CommonIcon.common-input__text__icon.right-0(v-if="type === 'password'" :src="showPassword ? '/icons/show.svg' : '/icons/hide.svg'" color="black" @click="togglePassword")
+        CommonIcon.common-input__text__icon.right-0(v-if="type === 'password'" :src="showPassword ? '/icons/show.svg' : '/icons/hide.svg'" @click="togglePassword")
       transition(name="error")
         span.common-input__error__container(v-if="errors.length > 0")
-          CommonIcon.mx-1.w-4.h-4(src='/icons/circle-warning.svg' color="red")
+          CommonIcon.mx-1.w-4.h-4(src='/icons/circle-warning.svg')
           span.subtitle3 {{ errors[0] }}
 </template>
 
